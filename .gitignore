@@ -1,0 +1,26 @@
+##################################
+# ===== BACKEND - SPRING =====
+##################################
+library-management/target/
+library-management/*.log
+
+##################################
+# ===== FRONTEND - REACT =====
+##################################
+LibraryManagementFE/node_modules/
+LibraryManagementFE/build/
+LibraryManagementFE/dist/
+LibraryManagementFE/.env
+
+##################################
+# ===== IDE =====
+##################################
+.vscode/
+.idea/
+*.iml
+
+##################################
+# ===== OS =====
+##################################
+.DS_Store
+Thumbs.db

@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  --bg-color: #d0e1e7;
+  --primary-color: #012e4a;
+  --header-color: #036280;
+  --highlight-color: #ff6500;
+  --btn-color: #036280;
+  max-width: none !important;
+  margin: 0;
+  padding: 0 !important;
+}
+
+.linear-slider .swiper-wrapper {
+  transition-timing-function: linear !important;
+}

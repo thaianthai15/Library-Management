@@ -1,0 +1,42 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres:15
+    container_name: library-postgres
+    restart: always
+    environment:
+      POSTGRES_DB: library_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Hoangoaingu1
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: library-app
+    restart: always
+    depends_on:
+      - db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/library_db
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: Hoangoaingu1
+    ports:
+      - "8080:8080"
+
+  frontend:
+    build: ../LibraryManagementFE
+    container_name: library-frontend
+    restart: always
+    depends_on:
+      - app          # ✅ SỬA Ở ĐÂY
+    ports:
+      - "3000:80"
+
+volumes:
+  postgres_data:
